@@ -10,11 +10,11 @@ exports.handler = async (event) => {
 
   try {
 
-    const { name, phone } = JSON.parse(event.body);
+    const { name, type } = JSON.parse(event.body);
     let idGen = Math.ceil(Math.random() * 1000);
     let id = `${idGen}`;
 
-    let record = new petsModel({ id, name, phone });
+    let record = new petsModel({ id, name, type });
     data = await record.save();
 
   } catch (e) {
