@@ -20,13 +20,10 @@ exports.handler = async (event) => {
   try {    
     const { name, type } = JSON.parse(event.body);
     if(!name) {
-      let record = new petsModel({ id, retName, type });
       data = await petsModel.update({ id, retName, type });
     } else if(!type) {
-      let record = new petsModel({ id, name, retType });
       data = await petsModel.update({ id, name, retType });
     } else {
-      let record = new petsModel({ id, name, type });
       data = await petsModel.update({ id, name, type });
     }
 
