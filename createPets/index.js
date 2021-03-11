@@ -1,5 +1,5 @@
 
-// const { v4: uuid } = require('uuid');
+const { v4: uuid } = require('uuid');
 const dynamoose = require('dynamoose');
 const petsModel = require('./pets.schema.js');
 
@@ -8,11 +8,11 @@ exports.handler = async (event) => {
 
   let data;
 
+
   try {
 
     const { name, type } = JSON.parse(event.body);
-    let idGen = Math.ceil(Math.random() * 1000);
-    let id = `${idGen}`;
+    let id = uuid();
 
     let record = new petsModel({ id, name, type });
     data = await record.save();
