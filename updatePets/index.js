@@ -9,12 +9,26 @@ exports.handler = async (event) => {
   let data;
   let id = event.pathParameters && event.pathParameters.id;
   
-  
+  if(id) {
+      data = await petsModel.query('id').eq(id).exec();
+    }
+  let retreivedData = JSON.stringify(data);
+  let retName = retreivedData.name;
+  let retType = retreivedData.type;
+
+
   try {    
     const { name, type } = JSON.parse(event.body);
-
-    let record = new petsModel({ id, name, type });
-    data = await record.save();
+    if(!name) {
+      let record = new petsModel({ id, retName, type });
+      data = await petsModel.update({ id, retName, type });
+    } else if(!type) {
+      let record = new petsModel({ id, name, retType });
+      data = await petsModel.update({ id, name, retType });
+    } else {
+      let record = new petsModel({ id, name, type });
+      data = await petsModel.update({ id, name, type });
+    }
 
   } catch (e) {
     return {

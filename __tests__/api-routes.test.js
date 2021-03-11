@@ -15,7 +15,6 @@ describe('Testing serverless API routes', () => {
 
   it('Should return a specific record when provided an id using GET /pets/id', async () => {
     const response = await superagent.get(`${apiUrl}/pets/293`);
-    console.log(response.body);
 
     expect(response.body[0].name).toEqual('Flerken');
   });
