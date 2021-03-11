@@ -1,0 +1,25 @@
+{
+  "name": "serverless-api",
+  "version": "1.0.0",
+  "description": "Create a single resource REST API using a domain model of your choosing, constructed using AWS Cloud Services",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/William-Moreno/serverless-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/William-Moreno/serverless-api/issues"
+  },
+  "homepage": "https://github.com/William-Moreno/serverless-api#readme",
+  "dependencies": {
+    "jest": "^26.6.3",
+    "superagent": "^6.1.0",
+    "supertest": "^6.1.3"
+  }
+}
